@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * ---- data Object ----
+ */
 {
   const user = {
     name: 'Dicoding',
@@ -59,7 +62,7 @@
 }
 
 /**
- *  Menstrukturkan Data dengan ARRAY
+ *  ---- Menstrukturkan Data dengan ARRAY ----
  */
 {
   const array = [1, 2];
@@ -169,4 +172,57 @@
   const myArray = ['Web', 'Android', 'Data Science'];
   myArray.sort();
   console.log(myArray); // output: ['Android', 'Data Science', 'Web']
+}
+
+/**
+ * ---- Menstrukturkan Data dengan Map ----
+ * Map berfungsi untuk menutupi kekurangan dari object, yang dimana Map dapat
+ * menggunakan key dengan tipe data apa pun
+ */
+
+{
+  // Membuat Map
+  const map = new Map();
+
+  const productMap = new Map([
+    ['shoes', 500],
+    ['cap', 350],
+    ['jeans', 250],
+  ]);
+
+  console.log(productMap);
+  // output: Map(3) { 'shoes' => 500, 'cap' => 350, 'jeans' => 250 }
+}
+
+{
+  // Menyimpan Nilai di Map menggunakan method 'set'. set menerima dua nilai (key, value)
+  const map = new Map();
+  map.set('name', 'aras');
+  console.log(map); // Map(1) { 'name' => 'aras' }
+
+  map.set(1, 'number one');
+  console.log(map); // Map(2) { 'name' => 'aras', 1 => 'number one' }
+}
+
+{
+  // Mengakses Nilai di Map dengan menggunakan method 'get'
+  const map = new Map();
+  map.set('name', 'aras');
+  console.log(map.get('name')); // output: aras
+  // contoh diatas, key-nya adalah 'name' dan nilai yang dikembalikan adalah "aras".
+}
+
+{
+  // Menghapus Nilai di Map menggunakan method 'delete', method ini akan menghapus nilai spesifik berdasarkan key yang kita tentukan.
+  const map = new Map();
+  map.set('name', 'aras');
+  map.set('last name', 'opraza');
+  map.delete('last name');
+  console.log(map); // Map(1) { 'name' => 'aras' }
+
+  /**
+   * Kembalian dari method delete akan bernilai true jika element tersedia atau
+   * berhasil dihapus. Namun, kembaliannya juga dapat bernilai false jika element
+   * yang ingin dihapus tidak ada.
+   */
 }
