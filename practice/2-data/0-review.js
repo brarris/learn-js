@@ -282,3 +282,60 @@
 
   console.log(set); // Set(1) { 2 }
 }
+
+/**
+ * <--! Spread Operator --!>
+ * memiliki arti sesuai dengan namanya, yaitu menyebarkan. Biasa digunakan untuk
+ * menyebarkan nilai yang ada pada object dan array. spread operator yang ditandai
+ * dengan sintaks tiga titik (...) adalah fitur yang menarik dan membantu
+ * dalam pengelolaan object dan array. Dengan spread operator, nilai object dan array
+ * dapat di-iterable menjadi beberapa element.
+ * 'iterable' secara sederhana berarti nilai-nilai dalam suatu object atau array,
+ * dapat dipecah atau diurai satu per satu menjadi elemen-elemen individual.
+ */
+
+{
+  const buahKeranjang1 = ['apel', 'pisang'];
+  const buahKeranjang2 = ['jeruk', 'mangga'];
+
+  // Menggunakan spread operator untuk 'menyebarkan' buah dari keranjang1 dan keranjang 2
+  // sehingga mereka menjadi elemen terpisah di keranjangBaru
+  const keranjangBaru = [...buahKeranjang1, ...buahKeranjang2];
+  console.log(keranjangBaru); // output: ['apel', 'pisang', 'jeruk', 'mangga']
+  /**
+   * dari contoh output diatas, spread operator juga dapat menggabungkan dua array.
+   * Selain itu spread operator pada array juga dapat digunakan untuk
+   * menyalin sebuah array seperti berikut dibawah ini.
+   */
+
+  const original = ['apple', 'banana', 'cherry'];
+  const copy = [...original];
+  console.log(copy); // output: ['apple', 'banana', 'cherry']
+}
+
+{
+  // spread operator pada object
+  const obj1 = { name: 'Dicoding' };
+  const obj2 = { lastName: 'Indonesia', address: 'Jl. Batik Kumeli No 50' };
+  const newObj = { ...obj1, ...obj2 };
+
+  console.log(newObj);
+  /**output:
+   *{
+   *  name: 'Dicoding',
+   *  lastName: 'Indonesia',
+   *  address: 'Jl. Batik Kumeli No 50'
+   *}
+   * bisa dilihat bahwa output diatas bahwa spread operator dapat mempermudah
+   * menggabungkan dua object.
+   */
+
+  const originalObj = { name: 'Dicoding', age: 9 };
+  const copiedObj = { ...originalObj };
+
+  console.log(copiedObj); // output: { name: 'Dicoding', age: 9 }
+  /**
+   * Selain mempermudah menggabungkan object, spread operator juga mempermudah
+   * untuk menyalin object seperti contoh di atas.
+   */
+}
