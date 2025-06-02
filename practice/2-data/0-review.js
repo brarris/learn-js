@@ -226,3 +226,59 @@
    * yang ingin dihapus tidak ada.
    */
 }
+
+/**
+ * ---- Menstrukturkan Data dengan Set ----
+ * Set merupakan struktur data yang spesial dibandingkan map, array, dan object.
+ * mengapa bisa dikatakan spesial?
+ * karena Set tidak memiliki key dan indeks ketika menyimpan data, selain itu...
+ * data yang disimpan di dalam set akan bernilai unik artinya tidak akan ada data
+ * yang duplikat.
+ */
+
+{
+  const mySet = new Set([1, 2, 3]);
+  console.log(mySet); // output: Set(3) { 1, 2, 3 }
+}
+
+{
+  /**
+   * Menyimpan Nilai di Set menggunakan method 'add', dimana method add hanya
+   * menerima satu argument sebagai nilai yang ingin kita tambahkan ke dalam set.
+   * Jika kita memberikan nilai yang sama, set hanya akan menyimpan sekali saja.
+   * Oleh karena itu, data yang ada di dalam set tidak akan terduplikat.
+   */
+  const set = new Set();
+  set.add(1);
+  set.add('Apple');
+  set.add(1);
+  set.add('Apple');
+
+  console.log(set); // output: Set(2) { 1, 'Apple' }
+}
+
+{
+  // Mengakses Nilai di Set
+  const set = new Set();
+  set.add(1);
+  set.add(2);
+
+  for (const number of set) {
+    console.log(number);
+    /**
+     * output:
+     * 1
+     * 2
+     */
+  }
+}
+
+{
+  // Menghapus Nilai di Set
+  const set = new Set();
+  set.add(1);
+  set.add(2);
+  set.delete(1);
+
+  console.log(set); // Set(1) { 2 }
+}
