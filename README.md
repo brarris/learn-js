@@ -12,6 +12,6 @@ This repo is a digital log of my journey in mastering programming. It serves as 
 
 This repository is (or will be) organized by source or topic:
 
-root/
-└── dicoding
-└── freecodecamp
+- root/
+  - dicoding
+  - freecodecamp`
