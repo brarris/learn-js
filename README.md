@@ -1,9 +1,17 @@
-# Kelas Belajar Dasar Pemrograman Javascript
-## _Dicoding Indonesia_
+# My Learning Journey 🚀
 
-Ini merupakan hasil dari latihan dan juga kuis coding pada kelas Belajar Dasar Pemrograman Javascript.
+This repo is a digital log of my journey in mastering programming. It serves as a place where I store all exercises, projects, and solutions from various coding challenges.
 
-- Kuis Coding: Mengarungi Lautan Sintaksis (kuis1.js)
-- Kuis Coding: Bermain dengan Function (kuis2.js)
-- Kuis Coding: Bukan Sembarang Data (kuis3.js)
-- Kuis Coding: Sang Pengatur Program (kuis4.js)
+## 🎯 Repository Goals
+
+- **Documentation:** To log every concept and exercise I have completed.
+- **Portfolio:** To demonstrate my progress and skills through small projects.
+- **Review:** To make it easier for me to revisit materials I have already learned.
+
+## 📂 Folder Structure
+
+This repository is (or will be) organized by source or topic:
+
+root/
+└── dicoding
+└── freecodecamp
