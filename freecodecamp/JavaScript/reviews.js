@@ -169,6 +169,7 @@ helloWorld(); // Hello World
       age_nya: 20,
     },
   ];
+  // normalisasi data, supaya data nya bisa kita gunakan dengan mudah, ketika developer ingin implementasi pada react komponen
   const transformed = rajawaliGroup.map((person) => ({
     nama: person.name_lengkap,
     umur: person.age_nya,
@@ -183,4 +184,58 @@ helloWorld(); // Hello World
    *  { nama: 'Sarah', umur: 20 }
    * ]
    */
+
+  // jika ingin mengolah terlebih dahulu data-nya, sebelum di lempar menjadi objek yang sudah kita normalisasi, maka developer tidak bisa menggunakan parentheses seperti keunggulan dari arrow function
+  // maksudnya: `const transformed = rajawaliGroup.map(person => ())` maka sebagai ganti nya,
+  // gunakan `const transformed = rajawaliGroup.map(person => {})`, sebagai hasil nya di berikan keyword return
+  const transformasi = rajawaliGroup.map((person) => {
+    const nama = `Hallo Nama saya ${person.name_lengkap}`;
+    return {
+      nama: nama,
+      umur: person.age_nya,
+    };
+  });
+  console.log(transformasi);
+  /**
+   * output:
+   * [
+   *  { nama: 'Hallo Nama saya John', umur: 25 },
+   *  { nama: 'Hallo Nama saya Emily', umur: 30 },
+   *  { nama: 'Hallo Nama saya Sarah', umur: 20 },
+   * ]
+   */
+
+  // ----- Perbedaan `find` dengan `filter` -----
+  // (find: hanya mengembalikan satu buah object, berbeda dengan filter: akan mengembalikan beberapa object dalam bentuk array yang ada value 'cooking')
+  const temukan = people.find((person) => person.hobbies.includes("cooking"));
+  console.log(temukan); // output: { name: 'John', age: 27, hobbies: [ 'reading', 'hiking', 'cooking', 'painting' ] }
+
+  // (mirip dengan find, perbedaan nya terdapat pada output, find output nya hanya satu, namun filter output-nya beberapa dan dalam bentuk array kembali, bukan object)
+  // Array Method: Filter
+  const filter = people.filter((person) => person.hobbies.includes("cooking"));
+  console.log(filter);
+  /**
+   * output:
+   * [
+   *    {
+   *      name: 'John',
+   *      age: 27,
+   *      hobbies: [ 'reading', 'hiking', 'cooking', 'painting' ]
+   *    },
+   *    {
+   *      name: 'Emily',
+   *      age: 30,
+   *      hobbies: [ 'gaming', 'cooking', 'photography' ]
+   *    },
+   *    {
+   *      name: 'Sarah',
+   *      age: 20,
+   *      hobbies: [ 'dancing', 'swimming', 'gardening', 'cooking' ]
+   *    },
+   * ]
+   */
+}
+
+{
+  // Nullish Operator
 }
