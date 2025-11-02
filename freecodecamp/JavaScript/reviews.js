@@ -70,7 +70,7 @@ console.log(name); // Halo nama saya Paijo Paimin
 }
 
 {
-  // Rest Operator
+  // ----- Rest Operator ------
   function hitung(a, b, c, ...rest) {
     console.log(rest); // [ 4, 5, 6, 7, 8, 9 ]
   }
@@ -89,4 +89,98 @@ console.log(name); // Halo nama saya Paijo Paimin
   //  hal yang sama juga berlaku jika ingin menggabungkan dua object menjadi satu
   const hasil = { ...arr, ...char };
   console.log(hasil); // { '0': 'A', '1': 'B', '2': 'C', '3': 4, '4': 5 }
+}
+
+// ----- ECMAScript Module (ES Module) -----
+// fitur JavaScript yang berfungsi memungkinkan developer untuk memisahkan kode satu sama lain, tujuan nya agar code tidak redundant(berulang)
+// memungkinkan developer untuk menulis kode bisa dengan file yang terpisah
+// --- Cara ke-1 ---
+import apapunNamaNya from "./helper.js"; // keyword apapunNamaNya mewakili fungsi yang di export pada helper.js
+console.log(apapunNamaNya); // [Function: hello]
+apapunNamaNya(); // Hello
+
+// --- Cara ke-2 ---
+import { helloWorld } from "./helper.js"; // jika memakai keyword export sebelum fungsi maka harus gunakan `{ namaFungsi }`
+console.log(helloWorld); // [Function: helloWorld]
+helloWorld(); // Hello World
+
+{
+  // ----- Ternaries Operator ----- (condition ? true condition : false condition)
+  // (merupakan shortcut untuk menuliskan suatu if statement atau pengkondisian)
+  function checkWin(isWin) {
+    // if statement biasa
+    if (isWin) {
+      console.log("Kamu Menang");
+    } else {
+      console.log("Kamu Kalah");
+    }
+    // Jika menggunakan ternaries operator
+    isWin ? console.log("Kamu Menang") : console.log("Kamu Kalah");
+  }
+  checkWin(true); // Kamu Menang (2x)
+}
+
+{
+  // ----- Array Method -----
+  const people = [
+    {
+      name: "John",
+      age: 27,
+      hobbies: ["reading", "hiking", "cooking", "painting"],
+    },
+    {
+      name: "Emily",
+      age: 30,
+      hobbies: ["gaming", "cooking", "photography"],
+    },
+    {
+      name: "Sarah",
+      age: 20,
+      hobbies: ["dancing", "swimming", "gardening", "cooking"],
+    },
+  ];
+  // --- Array Method: Find ---
+  const find = people.find((a) => a.name === "John"); // (a) merupakan satu parameter `bisa bebas nama nya namun jelas` berupa fungsi yang mewakili masing masing object yang berada dalam array, digunakan juga untuk memudahkan code terbaca oleh developer lain
+  console.log(find); // { name: 'John', age: 27, hobbies: [ 'reading', 'hiking', 'painting' ] }
+
+  // --- Array Method: Includes ---
+  // berfungsi untuk mencari apakah array itu, salah satu nya ada berupa nilai yang ingin kita cari
+
+  // --- Array Method: Some --- (mengembalikan nilai boolean 'true/false') cocok untuk mengecek apakah dalam suatu property suatu object terdapat value array berupa "cooking"
+  const some = people.some((person) => person.hobbies.includes("cooking")); // (person) merupakan satu parameter `bisa bebas nama nya namun jelas` berupa fungsi yang mewakili masing-masing object yang berada dalam array, digunakan juga agar code mudah di baca oleh developer lain
+  console.log(some); // true
+
+  // --- Array Method: Every --- (mengembalikan nilai boolean 'true/false') cocok untuk mengecek keseluruhan nilai dari seluruh property yang ingin di cek, dalam kasus di bawah, mengecek secara keseluruhan apakah orang-orang mempunyai hobi yang sama, yaitu 'cooking'
+  const every = people.every((person) => person.hobbies.includes("cooking"));
+  console.log(every); // true
+
+  //  --- Array Method: Map ---
+  const rajawaliGroup = [
+    {
+      name_lengkap: "John",
+      age_nya: 25,
+    },
+    {
+      name_lengkap: "Emily",
+      age_nya: 30,
+    },
+    {
+      name_lengkap: "Sarah",
+      age_nya: 20,
+    },
+  ];
+  const transformed = rajawaliGroup.map((person) => ({
+    nama: person.name_lengkap,
+    umur: person.age_nya,
+  }));
+
+  console.log(transformed);
+  /**
+   * output:
+   * [
+   *  { nama: 'John', umur: 25 },
+   *  { nama: 'Emily', umur: 30 },
+   *  { nama: 'Sarah', umur: 20 }
+   * ]
+   */
 }
