@@ -237,5 +237,87 @@ helloWorld(); // Hello World
 }
 
 {
-  // Nullish Operator
+  // Nullish Operator ( cara lain untuk menulis logic `||` pada JavaScript)
+  const price = 0 || 1000;
+  console.log(price); // 1000
+
+  const harga = 0 ?? 1000;
+  console.log(harga); // 0
+
+  /**
+   * --- Falsy Value ---
+   * 1. false
+   * 2. 0, 0-, and On
+   * 3. "", '' (empty strings)
+   * 4. null, undefined and NaN
+   * 5. document.all
+   */
+}
+
+{
+  // ------ Optional Chaining ------
+
+  // misal seorang front-end menerima data dari back-end seperti ini
+  // data yang rapih dan selalu ada value
+  const people = [
+    {
+      name: "John",
+      age: 25,
+      hobbies: ["reading", "hiking", "cooking"],
+    },
+    {
+      name: "Emily",
+      age: 30,
+      hobbies: ["gaming", "cooking", "photography"],
+    },
+    {
+      name: "Sarah",
+      age: 20,
+      hobbies: ["dancing", "gardening"],
+    },
+  ];
+  const umur = people[1].age;
+  console.log(umur); // 30
+
+  // namun, apa yang terjadi apabila back-end mengasih data yang mengembalikan nilai `undefined`?
+  const orang = undefined;
+  // const age = orang[1].age;
+  // console.log(age); // TypeError: Cannot read properties of undefined (reading '1')
+
+  // jika memakai optional chaining, berikan `?` atau optional chaining di setiap nama Array dan urutan index, yang ingin kita cek nilai nya
+  const age = orang?.[1]?.age;
+  console.log(age); // undefined
+}
+
+{
+  // ----- Async Await -----
+  /**
+   * JavaScript memiliki keunggulan yaitu, mengeksekusi kode secara paralel (paralel = sesuatu yang berjalan atau berlangsung bersamaan, dalam jalur yang sejajar atau sejajar satu sama lain.)
+   *  - Maka dari itu JavaScript menyediakan fitur bernama asynchronous code, apa itu asynchronous code?
+   *    - asynchronous code, yaitu kode yang memungkinkan untuk mulai berjalan terlebih dahulu atau mungkin berjalan secara bersamaan, tanpa menghalangi eksekusi program kode yang akan di tulis selanjutnya.
+   * Analogi: https://docs.google.com/document/d/1TOMMh99BA6kU_GWzERT7-_tHDBtG5QEtrAUiQmH-3uQ/edit?usp=sharing
+   *
+   */
+  // secara default JavaScript selalu mengeksekusi kode secara Syncronous atau Berurutan
+
+  // versi 1 - sebelum
+  function getData() {
+    const data = fetch("https://jsonplaceholder.typicode.com/posts");
+    console.log(data);
+  }
+  console.log(getData()); // Promise { <pending> }
+  // apa arti data promise? sebenarnya, si data belum selesai mengeksekusi, namun console.log udah terburu-buru mengeluarkan hasilnya seperti apa, terjadilah Promise { <pending> } undefined
+
+  // versi 2 - sesudah menggunakan async await
+  async function ambilData() {
+    const data = await fetch("https://jsonplaceholder.typicode.com/posts");
+    console.log(data);
+  }
+  ambilData();
+  /**
+   * akan menampilkan output berupa response dari back-end, yang bisa di olah selanjutnya
+   * Response {
+   * status: 2000,
+   * statusText: 'OK',
+   */
 }
