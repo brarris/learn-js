@@ -95,12 +95,12 @@ console.log(name); // Halo nama saya Paijo Paimin
 // fitur JavaScript yang berfungsi memungkinkan developer untuk memisahkan kode satu sama lain, tujuan nya agar code tidak redundant(berulang)
 // memungkinkan developer untuk menulis kode bisa dengan file yang terpisah
 // --- Cara ke-1 ---
-import apapunNamaNya from "./helper.js"; // keyword apapunNamaNya mewakili fungsi yang di export pada helper.js
+import apapunNamaNya from "./1-helper.js"; // keyword apapunNamaNya mewakili fungsi yang di export pada helper.js
 console.log(apapunNamaNya); // [Function: hello]
 apapunNamaNya(); // Hello
 
 // --- Cara ke-2 ---
-import { helloWorld } from "./helper.js"; // jika memakai keyword export sebelum fungsi maka harus gunakan `{ namaFungsi }`
+import { helloWorld } from "./1-helper.js"; // jika memakai keyword export sebelum fungsi maka harus gunakan `{ namaFungsi }`
 console.log(helloWorld); // [Function: helloWorld]
 helloWorld(); // Hello World
 
